@@ -1,7 +1,7 @@
-Node TokenInput Plugin
-======================
+YUI 3 Node TokenInput Plugin
+============================
 
-Node plugin that turns a text input field into a tokenized input field similar
+YUI 3 Node plugin that turns a text input field into a tokenized input field similar
 to Cocoa's NSTokenField control.
 
 
