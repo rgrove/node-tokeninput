@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Example - node-tokeninput</title>
+    <link rel="stylesheet" href="assets/example-common.css">
+    <style>
+    .yui3-aclist-list {
+        font: 13px Helvetica, Arial, sans-serif;
+    }
+    </style>
+</head>
+<body class="yui3-skin-sam">
+
+<h1>AutoComplete Example - node-tokeninput</h1>
+
+<p>
+This example demonstrates how to use the YUI3 AutoComplete widget with node-tokeninput. View the source of this page to see the full implementation.
+</p>
+
+<h2>Demo</h2>
+
+<div class="demo">
+    <form>
+        <label for="tags">Tags:</label><br>
+        <input id="tags" type="text">
+    </form>
+</div>
+
+<p>
+Type some tag names in the input field above as if you're entering tags for a photo on Flickr. Separate the tags with commas, or press enter to turn the current text into a token.
+</p>
+
+<p>
+When the plugin is attached, the original input field will be hidden and replaced with a tokeninput widget, which emulates the behavior of an input field while adding support for tokens. The value of the widget will automatically be mirrored in the original input field with the configured delimiter character(s) between the tokens, so form submissions will submit the data as expected.
+</p>
+
+<h2>Code</h2>
+
+<pre class="prettyprint">
+&lt;script src=&quot;http://yui.yahooapis.com/combo?3.3.0pr3/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+YUI().use(&#x27;autocomplete&#x27;, &#x27;autocomplete-filters&#x27;, &#x27;autocomplete-highlighters&#x27;, &#x27;gallery-node-tokeninput&#x27;, function (Y) {
+    var inputNode = Y.one(&#x27;#tags&#x27;),
+
+        // List of tags to use for completion, just for the demo.
+        tags = [
+            &#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;, &#x27;date&#x27;, &#x27;fig&#x27;, &#x27;grapefruit&#x27;, &#x27;jujube&#x27;,
+            &#x27;kumquat&#x27;, &#x27;lemon&#x27;, &#x27;mango&#x27;, &#x27;nectarine&#x27;, &#x27;orange&#x27;, &#x27;pineapple&#x27;,
+            &#x27;raspberry&#x27;, &#x27;strawberry&#x27;, &#x27;tangerine&#x27;, &#x27;watermelon&#x27;
+        ];
+
+    // Attach the node-tokeninput and autocomplete plugins.
+    inputNode.plug(Y.Plugin.TokenInput).plug(Y.Plugin.AutoComplete, {
+        resultFilters: &#x27;charMatch&#x27;,
+        resultHighlighter: &#x27;charMatch&#x27;,
+        source: tags
+    });
+});
+&lt;/script&gt;
+</pre>
+
+<script src="http://yui.yahooapis.com/combo?3.3.0pr3/build/yui/yui-min.js&amp;3.3.0pr3/build/loader/loader-min.js"></script>
+<script>
+YUI().use('autocomplete', 'autocomplete-filters', 'autocomplete-highlighters', 'gallery-node-tokeninput', function (Y) {
+    var inputNode = Y.one('#tags'),
+
+        // List of tags to use for completion, just for the demo.
+        tags = [
+            'apple', 'banana', 'cherry', 'date', 'fig', 'grapefruit', 'jujube',
+            'kumquat', 'lemon', 'mango', 'nectarine', 'orange', 'pineapple',
+            'raspberry', 'strawberry', 'tangerine', 'watermelon'
+        ];
+
+    // Attach the node-tokeninput and autocomplete plugins.
+    inputNode.plug(Y.Plugin.TokenInput).plug(Y.Plugin.AutoComplete, {
+        resultFilters: 'charMatch',
+        resultHighlighter: 'charMatch',
+        source: tags
+    });
+});
+</script>
+
+</body>
+</html>
