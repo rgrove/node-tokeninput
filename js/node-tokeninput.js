@@ -164,7 +164,7 @@ Y.extend(TokenInput, Y.Plugin.Base, {
      * @chainable
      */
     remove: function (index) {
-        var tokens = this.get(TOKENS);
+        var tokens = this.get(TOKENS).concat();
 
         tokens.splice(index, 1);
 
