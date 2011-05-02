@@ -11,8 +11,8 @@
 
     body { margin: 2em; }
     </style>
-    <link rel="stylesheet" href="../../assets/gallery-node-tokeninput-core.css">
-    <link rel="stylesheet" href="../../assets/skins/sam/gallery-node-tokeninput-skin.css">
+    <link rel="stylesheet" href="../../assets/node-tokeninput-core.css">
+    <link rel="stylesheet" href="../../assets/skins/sam/node-tokeninput-skin.css">
 </head>
 <body class="yui3-skin-sam">
 
@@ -48,7 +48,7 @@
     </p>
 </form>
 
-<script src="http://yui.yahooapis.com/combo?3.3.0pr1/build/yui/yui-min.js&amp;3.3.0pr1/build/loader/loader-min.js"></script>
+<script src="http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&amp;3.3.0/build/loader/loader-min.js"></script>
 <script src="../../js/node-tokeninput.js"></script>
 <script>
 var Y = YUI({
@@ -69,7 +69,16 @@ input2.plug(Y.Plugin.TokenInput, {
 });
 
 input3.plug(Y.Plugin.TokenInput, {
-    removeButton: true
+    removeButton: true,
+    after: {
+        tokensChange: function (e) {
+            console.log('prevVal:');
+            console.log(e.prevVal);
+
+            console.log('newVal');
+            console.log(e.newVal);
+        }
+    }
 });
 
 input4.plug(Y.Plugin.TokenInput);
@@ -84,7 +93,8 @@ window.ac = new Y.AutoComplete({
     inputNode        : input4,
     render           : true,
     resultHighlighter: 'phraseMatch',
-    source           : 'select * from search.suggest where query="{query}"'
+    source           : 'select * from search.suggest where query="{query}"',
+    yqlEnv           : 'http://pieisgood.org/yql/tables.env'
 });
 
 });
