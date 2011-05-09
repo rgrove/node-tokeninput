@@ -193,7 +193,6 @@ Y.extend(TokenInput, Y.Plugin.Base, {
         this._events.concat([
             this._boundingBox.after({
                 blur : this._afterBlur,
-                click: this._afterFocus, // for FF4, which is buggy
                 focus: this._afterFocus
             }, null, this),
 
@@ -731,8 +730,12 @@ Y.extend(TokenInput, Y.Plugin.Base, {
      * @protected
      */
     _afterBlur: function (e) {
+        var that = this;
+
         if (this.get('tokenizeOnBlur')) {
-            this._tokenizeValue(null, null, {all: true});
+            setTimeout(function () {
+                that._tokenizeValue(null, null, {all: true});
+            }, 100);
         }
     },
 
