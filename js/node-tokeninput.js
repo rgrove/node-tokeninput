@@ -121,9 +121,8 @@ Y.extend(TokenInput, Y.Plugin.Base, {
                     text : token,
                     token: true
                 }));
-                
-                this.fire('addToken', {'token': token})
-                
+
+                this.fire('addToken', {token: token});
             }
         }, this);
 
@@ -141,9 +140,7 @@ Y.extend(TokenInput, Y.Plugin.Base, {
 
             this._tokenNodes.refresh();
             this.set(TOKENS, tokens, {atomic: true});
-            
         }
-        
 
         return this;
     },
@@ -169,16 +166,18 @@ Y.extend(TokenInput, Y.Plugin.Base, {
      * @chainable
      */
     remove: function (index) {
-        var tokens = this.get(TOKENS).concat();
-
-        var oldToken = tokens[index];
+        var tokens   = this.get(TOKENS).concat(),
+            oldToken = tokens[index];
 
         tokens.splice(index, 1);
 
         this._tokenNodes.item(index).remove(true);
         this._tokenNodes.refresh();
-        
-        this.fire('removeToken', {token: oldToken, idx: index});
+
+        this.fire('removeToken', {
+            token     : oldToken,
+            tokenIndex: index
+        });
 
         return this.set(TOKENS, tokens, {atomic: true});
     },
