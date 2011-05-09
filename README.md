@@ -9,13 +9,6 @@ similar to Cocoa's NSTokenField control.
   * [Examples](http://rgrove.github.com/node-tokeninput/examples/)
   * [Bugs](https://github.com/rgrove/node-tokeninput/issues)
 
-Known Issues
-------------
-
-  * Focus and blur events currently don't fire in Mac Firefox 4, due to the 
-    following Firefox 4 bug: https://bugzilla.mozilla.org/show_bug.cgi?id=606011
-
-
 Change History
 --------------
 
