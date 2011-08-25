@@ -20,3 +20,6 @@ pre {
   border: 1px solid #9BD3EF;
   padding: 0.7em 1em;
 }
+
+.demo input { visibility: hidden; }
+.yui3-js-enabled .demo input { visibility: visible; }
