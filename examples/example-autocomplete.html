@@ -38,9 +38,12 @@ When the plugin is attached, the original input field will be hidden and replace
 <h2>Code</h2>
 
 <pre class="prettyprint">
-&lt;script src=&quot;http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-YUI().use(&#x27;autocomplete&#x27;, &#x27;autocomplete-filters&#x27;, &#x27;autocomplete-highlighters&#x27;, &#x27;gallery-node-tokeninput&#x27;, function (Y) {
+YUI({gallery: 'gallery-2011.08.24-23-44'}).use(&#x27;autocomplete&#x27;,
+        &#x27;autocomplete-filters&#x27;, &#x27;autocomplete-highlighters&#x27;,
+        &#x27;gallery-node-tokeninput&#x27;, function (Y) {
+
     var inputNode = Y.one(&#x27;#tags&#x27;),
 
         // List of tags to use for completion, just for the demo.
@@ -60,9 +63,9 @@ YUI().use(&#x27;autocomplete&#x27;, &#x27;autocomplete-filters&#x27;, &#x27;auto
 &lt;/script&gt;
 </pre>
 
-<script src="http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&amp;3.3.0/build/loader/loader-min.js"></script>
+<script src="http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js"></script>
 <script>
-YUI().use('autocomplete', 'autocomplete-filters', 'autocomplete-highlighters', 'gallery-node-tokeninput', function (Y) {
+YUI({gallery: 'gallery-2011.08.24-23-44'}).use('autocomplete', 'autocomplete-filters', 'autocomplete-highlighters', 'gallery-node-tokeninput', function (Y) {
     var inputNode = Y.one('#tags'),
 
         // List of tags to use for completion, just for the demo.

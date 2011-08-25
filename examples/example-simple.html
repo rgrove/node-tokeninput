@@ -33,17 +33,17 @@ When the plugin is attached, the original input field will be hidden and replace
 <h2>Code</h2>
 
 <pre class="prettyprint">
-&lt;script src=&quot;http://yui.yahooapis.com/combo?3.3.0pr3/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-YUI().use(&#x27;gallery-node-tokeninput&#x27;, function (Y) {
+YUI({gallery: 'gallery-2011.08.24-23-44'}).use(&#x27;gallery-node-tokeninput&#x27;, function (Y) {
     Y.one(&#x27;#tags&#x27;).plug(Y.Plugin.TokenInput);
 });
 &lt;/script&gt;
 </pre>
 
-<script src="http://yui.yahooapis.com/combo?3.3.0pr3/build/yui/yui-min.js&amp;3.3.0pr3/build/loader/loader-min.js"></script>
+<script src="http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js"></script>
 <script>
-YUI().use('gallery-node-tokeninput', function (Y) {
+YUI({gallery: 'gallery-2011.08.24-23-44'}).use('gallery-node-tokeninput', function (Y) {
     Y.one('#tags').plug(Y.Plugin.TokenInput);
 });
 </script>
