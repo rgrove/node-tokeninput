@@ -14,6 +14,8 @@
 .yui3-tokeninput-content,
 .yui3-tokeninput-list { width: 100%; }
 
+.yui3-tokeninput-hidden { display: none; }
+
 .yui3-tokeninput-input {
     border: 0;
     outline: none;
@@ -34,6 +36,3 @@
 }
 
 .yui3-tokeninput-token { cursor: pointer; }
-
-.yui3-tokeninput-hidden,
-.yui3-tokeninput-host { display: none; }

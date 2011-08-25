@@ -6,7 +6,7 @@
     <style>
     html {
         color: #333;
-        font: 13px 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+        font: 13px Helvetica, sans-serif;
     }
 
     body { margin: 2em; }
@@ -48,12 +48,11 @@
     </p>
 </form>
 
-<script src="http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&amp;3.3.0/build/loader/loader-min.js"></script>
+<script src="http://yui.yahooapis.com/3.4.0/build/yui/yui.js"></script>
 <script src="../../js/node-tokeninput.js"></script>
 <script>
 var Y = YUI({
     filter: 'raw',
-    fetchCSS: false
 }).use('autocomplete', 'autocomplete-highlighters', 'gallery-node-tokeninput', function (Y) {
 
 var input  = Y.one('#input'),
