@@ -551,14 +551,19 @@ Y.extend(TokenInput, Y.Plugin.Base, {
      * @protected
      */
     _render: function () {
-        var classNames  = TokenInput.CLASS_NAMES,
+        var host        = this._host,
+            classNames  = TokenInput.CLASS_NAMES,
             boundingBox = Node.create(this.BOX_TEMPLATE),
-            contentBox  = Node.create(this.CONTENT_TEMPLATE);
+            contentBox  = Node.create(this.CONTENT_TEMPLATE),
+            hostClasses = host.get('className'),
+            hostId      = host.get('id');
 
         contentBox.addClass(classNames.content);
 
-        boundingBox.addClass(classNames.box).addClass(classNames.os)
-                .set('tabIndex', -1).append(contentBox);
+        boundingBox.addClass(classNames.box)
+            .addClass(classNames.os)
+            .set('tabIndex', -1)
+            .append(contentBox);
 
         this._set('boundingBox', boundingBox);
         this._set('contentBox', contentBox);
@@ -568,7 +573,19 @@ Y.extend(TokenInput, Y.Plugin.Base, {
 
         this._renderList();
 
-        this._host.addClass(classNames.host).insert(boundingBox, 'after');
+        // Copy the host's id to the boundingBox, with a "-tokeninput" suffix.
+        if (hostId) {
+            boundingBox.set('id', hostId + '-tokeninput');
+        }
+
+        // Copy the host's classes to the boundingBox.
+        if (hostClasses) {
+            boundingBox.addClass(hostClasses);
+        }
+
+        host.addClass(classNames.host)
+            .addClass(classNames.hidden)
+            .insert(boundingBox, 'after');
     },
 
     /**
