@@ -115,15 +115,19 @@ Y.extend(TokenInput, Y.Plugin.Base, {
             token = Lang.trim(token);
 
             if (token) {
-                //"node" added to arguments for addToken event
                 addTokens.push(token);
+
                 var item = this._createItem({
                     text : token,
                     token: true
                 });
+
                 items.push(item);
 
-                this.fire('addToken', {token: token, node : item});
+                this.fire('addToken', {
+                    token: token,
+                    node : item
+                });
             }
         }, this);
 
